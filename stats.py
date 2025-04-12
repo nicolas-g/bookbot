@@ -12,3 +12,12 @@ def get_chars_dict(text):
         else:
             chars[lowered] = 1
     return chars
+
+
+def get_sorted_dict(unsorted_dict):
+    char_list = []
+    for char, count in unsorted_dict.items():
+        if char.isalpha():
+            char_dict = {"char": char, "count": count}
+            char_list.append(char_dict)
+    return char_list
