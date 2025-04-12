@@ -1,6 +1,8 @@
 import sys
 from stats import get_num_words, get_chars_dict, get_sorted_dict
 
+# Extract the text content from the book file
+
 
 def get_book_text(path):
     with open(path) as f:
@@ -15,6 +17,7 @@ def main():
 
     file_path = sys.argv[1]
 
+    # Basicaly we open the file and read it
     contents = get_book_text(file_path)
     print("============ BOOKBOT ============")
     print("Analyzing book found at books/frankenstein.txt...")
@@ -23,10 +26,11 @@ def main():
     num_words = get_num_words(contents)
     print(f"Found {num_words} total words")
 
-    # print(get_chars_dict(contents))
+    # create a dictionary with the letters and their count
     chars_dict = get_chars_dict(contents)
 
     print("--------- Character Count -------")  # print(char_list.sort())
+    # we sort the dictionary by the count of the letters
     sorted_chars_dict = get_sorted_dict(chars_dict)
     for i in sorted_chars_dict:
         print(i["char"] + ": " + str(i["count"]))
